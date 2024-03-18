@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="images/icon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Gerador de Tabuadas</h2>
+        <p>Digite um número e depois clique no botão <span>"Gerar Tabuada"</span>
+            <br>e gere a tabuada do número escolhido, até o multiplicador 10.
+        </p>
+        <div class="container-button">
+            <input class="number" id="numInput" placeholder="Digite um número"></input>
+            <button onclick="geradorTabuada()">Gerar Tabuada</button>
+        </div>
+
+        <div id="tabuada"></div>
+    </div>
+    <footer class="footer">
+        <div class="footer-sci">
+            <a href="https://www.linkedin.com/in/alibiohenrique"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/alibiohenrique"><i class='bx bxl-github'></i></a>
+            <a href="https://www.youtube.com/@AlibioTv"><i class='bx bxl-youtube' src=""></i></a>
+        </div>
+        <div class="footer-text">
+            <p>Desenvolvido por <a href="https://www.linkedin.com/in/alibiohenrique/?locale=pt_BR"><span>Henrique
+                        Alibio</span></a> &COPY | 2024</p>
+        </div>
+    </footer>
+    <script>
+        function geradorTabuada() {
+            var numInput = document.getElementById("numInput").value;
+            var tabuadaDiv = document.getElementById("tabuada");
+            tabuadaDiv.innerHTML = ""; // quando o texto contém elementos html, é melhor
+
+            if (!numInput || isNaN(numInput)) { //quando a var não foi preenchida, se... / Not a number
+                tabuadaDiv.innerHTML = "<p> Por favor, insira um número válido </p>";
+                return; // saia do bloco
+
+            }
+
+            var tableHTML = "<h3> Tabuada do " + numInput + "</h3><table border='3'><tr><th>Número</th><th>Resultado</th></tr>";
+
+            for (var i = 1; i <= 10; i++) {
+                tableHTML += "<tr><td>" + numInput + " x " + i + "</td><td>" + (numInput * i) + "</td> </tr>";
+            }
+
+            tableHTML += "</table>";
+            tabuadaDiv.innerHTML = tableHTML;
+        }
+    </script>
+
+</body>
+
+</html>
